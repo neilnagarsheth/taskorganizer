@@ -1,0 +1,45 @@
+#tasks-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.task{
+	border-radius: 20px;
+	width: 250px;
+	height: 310px;
+   	margin: 15px;
+}
+
+.title{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.description{
+    overflow-y: auto;
+	height: 150px;
+}
+
+.card-footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.task-done{
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    #tasks-wrapper{
+        justify-content: center;
+    }
+}

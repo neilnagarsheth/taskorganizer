@@ -1,0 +1,16 @@
+<div id="tasks-wrapper">
+ <div *ngFor="let task of tasks" class="card task">
+    <div class="card-content">
+    	<div class="card-title title" [ngClass]="{'task-done': task.isDone}">{{task.title}}</div>
+     	<div class="description" [ngClass]="{'task-done': task.isDone}">{{task.description}}</div>
+    </div>
+    <div class="card-action card-footer">
+		<input type="checkbox" id="isDone{{task.id}}" [(ngModel)]="task.isDone" (ngModelChange)="updateTask(task)" />
+		<label attr.for="isDone{{task.id}}"></label>
+		<a href="#"><i class="material-icons">delete</i></a>
+    </div>
+   </div>
+</div>
+<div class="fixed-action-btn">
+	<a class="btn-floating btn-large waves-effect waves-light accent-color"><i class="material-icons">add</i></a>
+</div>
