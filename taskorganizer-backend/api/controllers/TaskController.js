@@ -7,6 +7,16 @@
 
 module.exports = {
 
+	getTask: function(req, res){
+		Task.findOne({id: req.params.id}).exec(function(error, task){
+			if(error){
+				return res.json(error);
+			} else {
+				return res.json(task);
+			}
+		});
+	},
+
 	getTasks: function(req, res){
 		Task.find().exec(function(error, tasks){
 			if(error){
@@ -27,7 +37,7 @@ module.exports = {
 			} else {
 				return res.json(task);
 			}
-		})
+		});
 	},
 
 	updateTask: function(req, res){
@@ -51,7 +61,7 @@ module.exports = {
 			} else {
 				return res.ok();
 			}
-		})
+		});
 	}
 
 };

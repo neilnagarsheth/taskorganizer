@@ -43,6 +43,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'get /getTask/:id':{
+    controller: 'TaskController',
+    action: 'getTask',
+    cors: true
+  },
+
   'get /getTasks':{
     controller: 'TaskController',
     action: "getTasks",
