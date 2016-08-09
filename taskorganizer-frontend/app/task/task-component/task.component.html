@@ -1,7 +1,7 @@
 <div id="tasks-wrapper">
  <div *ngFor="let task of tasks" class="card task">
     <div class="card-content">
-    	<div class="card-title title" [ngClass]="{'task-done': task.isDone}">{{task.title}}</div>
+    	<div class="card-title title" [ngClass]="{'task-done': task.isDone}" (click)="gotoTaskDetails(task)"><a>{{task.title}}</a></div>
      	<div class="description" [ngClass]="{'task-done': task.isDone}">{{task.description}}</div>
     </div>
     <div class="card-action card-footer">

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from '../task';
 import { OnInit } from '@angular/core';
-
+import { Router } from '@angular/router-deprecated';
 
 import { TaskService } from '../task.service';
 
@@ -12,12 +12,18 @@ import { TaskService } from '../task.service';
 })
 
 export class TasksComponent implements OnInit{
-	constructor(private taskService: TaskService){ }
+	constructor(private taskService: TaskService, private router: Router){ }
 	errorMessage: string;
 	tasks: Task[];
 
 	ngOnInit(){
 		this.getTasks();
+	}
+
+	gotoTaskDetails(task: Task){
+		if(!task.isDone){
+			this.router.navigate(['TaskDetails', { id: task.id }]);
+		}
 	}
 
 	getTasks(){
