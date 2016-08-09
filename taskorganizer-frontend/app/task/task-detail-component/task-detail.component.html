@@ -1,0 +1,28 @@
+<div *ngIf="isDataAvailable">
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="col s12">
+          <h4>{{selectedId ? "Edit Task" : "Add New Task"}}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input value="{{selectedTask.title}}" [(ngModel)]=selectedTask.title id="title" type="text" class="validate">
+          <label for="title" [ngClass]="{'active': selectedId}">Task</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea value="{{selectedTask.description}}" [(ngModel)]=selectedTask.description id="description" class="materialize-textarea"></textarea>
+          <label for="description" [ngClass]="{'active': selectedId}">Description</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <a class="waves-effect waves-light btn" (click)="sendTask(selectedTask)">Submit</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
