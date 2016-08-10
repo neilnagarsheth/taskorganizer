@@ -20,6 +20,10 @@ export class TasksComponent implements OnInit{
 		this.getTasks();
 	}
 
+	gotoNewTask(){
+		this.router.navigate(['NewTask']);
+	}
+
 	gotoTaskDetails(task: Task){
 		if(!task.isDone){
 			this.router.navigate(['TaskDetails', { id: task.id }]);

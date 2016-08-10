@@ -26,6 +26,12 @@ import { TaskService } from './task/task.service';
     path: '/taskdetails/:id',
     name: 'TaskDetails',
     component: TaskDetailComponent
+  },
+
+  {
+    path: '/new',
+    name: 'NewTask',
+    component: TaskDetailComponent
   }
 ])
 

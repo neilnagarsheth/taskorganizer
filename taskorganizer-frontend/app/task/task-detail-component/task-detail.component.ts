@@ -35,6 +35,13 @@ export class TaskDetailComponent implements OnInit{
 					       	error => this.errorMessage = <any>error);
 	}
 
+	createTask(task: Task){
+		this.taskService.createTask(task)
+						.subscribe(
+							response => this.navigateToTasks(),
+							error => this.errorMessage = <any>error);
+	}
+
 	updateTask(task: Task){
 		this.taskService.updateTask(task)
 						.subscribe(
@@ -52,7 +59,7 @@ export class TaskDetailComponent implements OnInit{
 		if(this.selectedId){
 			this.updateTask(task);
 		} else{
-			//create
+			this.createTask(task);
 		}
 	}
 
