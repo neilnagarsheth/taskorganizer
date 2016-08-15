@@ -14,6 +14,7 @@ export class TaskService{
 	private getTasksURL = "getTasks/";
 	private updateTaskURL = "updateTask/";
 	private createTaskURL = "createTask/";
+	private deleteTaskURL = "deleteTask/"
 
 	getTask(id: number): Observable<Task>{
 		return this.http
@@ -45,6 +46,12 @@ export class TaskService{
 					.catch(this.handleError);
 	}
 
+	deleteTask(id: number): Observable<Task>{
+		return this.http
+				    .delete(this.serverURL + this.deleteTaskURL + id)
+					.map(response => response.json())
+					.catch(this.handleError);
+	}
 
 	private handleError(error: any) {
 		console.error('An error occurred', error);

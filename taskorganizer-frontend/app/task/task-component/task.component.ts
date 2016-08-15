@@ -3,6 +3,7 @@ import { Task } from '../task';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
+
 import { TaskService } from '../task.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { TaskService } from '../task.service';
 	templateUrl: 'app/task/task-component/task.component.html',
 	styleUrls: ['app/task/task-component/task.component.css']
 })
+
 
 export class TasksComponent implements OnInit{
 	constructor(private taskService: TaskService, private router: Router){ }
@@ -30,6 +32,13 @@ export class TasksComponent implements OnInit{
 		}
 	}
 
+	getTaskDelete(id: number){
+		//For now, just reload page
+		//May need to wait until the css framework changes
+		this.deleteTask(id);
+		location.reload(true)
+	}
+
 	getTasks(){
 		this.taskService.getTasks()
 						.subscribe(
@@ -41,4 +50,11 @@ export class TasksComponent implements OnInit{
 		this.taskService.updateTask(task)
 						.subscribe(error => this.errorMessage = <any>error);
 	}
+
+	deleteTask(id: number){
+		this.taskService.deleteTask(id)
+						.subscribe(error => this.errorMessage = <any>error);
+	}
+
+
 }

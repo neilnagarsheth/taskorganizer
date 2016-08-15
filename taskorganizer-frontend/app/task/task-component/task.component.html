@@ -1,4 +1,5 @@
 <div id="tasks-wrapper">
+ <div *ngIf="!tasks || (tasks && tasks.length === 0)"><h5 class="center-align">Click Add Task in the bottom right to add a new Task</h5></div>
  <div *ngFor="let task of tasks" class="card task">
     <div class="card-content">
     	<div class="card-title title" [ngClass]="{'task-done': task.isDone}" (click)="gotoTaskDetails(task)"><a>{{task.title}}</a></div>
@@ -7,9 +8,9 @@
     <div class="card-action card-footer">
 		<input type="checkbox" id="isDone{{task.id}}" [(ngModel)]="task.isDone" (ngModelChange)="updateTask(task)" />
 		<label attr.for="isDone{{task.id}}"></label>
-		<a href="#"><i class="material-icons">delete</i></a>
+		<a (click)="getTaskDelete(task.id)"><i class="material-icons">delete</i></a>
     </div>
-   </div>
+  </div>
 </div>
 <div class="fixed-action-btn">
 	<a class="btn-floating btn-large waves-effect waves-light accent-color" (click)="gotoNewTask()"><i class="material-icons">add</i></a>
